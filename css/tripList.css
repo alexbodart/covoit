@@ -1,0 +1,22 @@
+#tripList .table {
+	margin-left: 5vw;
+	width: 90vw;
+	background: rgba(255,255,255,0.5);
+}
+
+#tripList .table {
+	font-weight: 300;
+	color: black;
+}
+
+#tripList .table tbody tr:hover {
+	color: rgba(255, 204, 51, 0.8);
+	background: rgba(8, 8, 8, 0.8);
+}
+
+#tripList h3 {
+	text-align: center;
+	color: white;
+	margin-top: 6vh;
+	margin-bottom: 6vh;
+}

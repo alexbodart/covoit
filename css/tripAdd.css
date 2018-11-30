@@ -1,0 +1,91 @@
+#tripAdd h3 {
+	text-align: center;
+	color: white;
+}
+
+#tripAdd .bottom-space {
+	margin-bottom: 2vh;
+}
+
+#tripAdd .top-space {
+	margin-top: 2vh;
+}
+
+#tripAdd .container {
+	position: absolute;
+	width: 480px;
+	height: 560px;
+	color: white;
+	top: 50vh; left: 50vw;
+	transform: translate(-50%,-50%);
+	background: rgba(8, 8, 8, 0.8);
+	box-sizing: border-box;
+	padding: 10px 30px;
+}
+
+#tripAdd .form-control {
+	border: none;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: rgba(255, 204, 51, 0.8);
+	font-size: 16px;
+}
+
+#tripAdd .form-control:focus {
+    border-color: rgba(255, 204, 51, 0.8);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(255, 204, 51, 0.8), 0 0 8px rgba(255, 204, 51, 0.8);
+    box-shadow: inset 0 1px 1px rgba(255, 204, 51, 0.8), 0 0 8px rgba(255, 204, 51, 0.8);
+}
+
+#tripAdd label {
+    cursor: pointer;
+    font-weight: 300;
+}
+
+#tripAdd .no-spin::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#tripAdd input[type=date], #tripAdd input[type=number] {
+	text-align: center;
+}
+
+#tripAdd input[type=radio]{
+    display: none;
+}
+
+#tripAdd input[type=radio] +  label:before {
+    background: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin-top: -3px;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+    width: 17px;
+    height: 17px;
+}
+
+#tripAdd input[type=radio]:checked + label:before {
+    background: rgba(255, 204, 51, 0.8);
+}
+
+#tripAdd form button[type="submit"] {
+	border: none;
+	outline: none;
+	background: rgba(255, 204, 51, 0.8);;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+	margin-top: 2vh;
+}
+
+#tripAdd form button[type="submit"]:hover {
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0.8);
+	color: rgba(255, 204, 51, 0.8);
+}
