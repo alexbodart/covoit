@@ -80,9 +80,4 @@ function recupTrajets()
 		return parcoursRs(SQLSelect($SQL)); 
 }
 
-function verifPassager($id_trajet,$id_passager)
-{
-		$SQL = "SELECT * FROM participants WHERE passager_id='$id_passager' and trajet_id='$id_trajet'";
-		return parcoursRs(SQLSelect($SQL));
-}
 ?>

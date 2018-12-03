@@ -10,9 +10,8 @@ if (basename($_SERVER["PHP_SELF"]) != "index.php")
 	<body>
 
 	    <!-- Page Content -->
-	    <div id="logSign">
-		    <form id="modifySignIn" class="form-signin" method="post" action="controleur.php">
-				<img class="Avatar" src="./ressources/Avatar.jpg" alt="" width="72" height="72">
+	    <div class="logsign">
+		    <form class="form-signin" method="post" action="controleur.php">
 		    	<h3>Inscrivez-vous içi</h3>
 		    	<label for="nom">Nom</label>
 		    		<input type="text" name="nom" class="form-control input" placeholder="Insérer votre nom" required autofocus>
