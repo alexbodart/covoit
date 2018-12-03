@@ -30,6 +30,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+		<!-- JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 		<!-- Personnal CSS -->
 		<link rel="stylesheet" type="text/css" href="./css/default.css">
 		<link rel="stylesheet" type="text/css" href="./css/tripAdd.css">
@@ -37,7 +40,10 @@
 		<link rel="stylesheet" type="text/css" href="./css/logSign.css">
 		
 		<!-- Personnal JS -->
-		<script src="./js/traitment.js"></script>		
+		<script src="./js/traitment.js"></script>
+
+		<!-- Personnal JQuery -->	
+		<script src="./js/JQuery.js"></script>
 
 	</head>
 
@@ -80,9 +86,9 @@
 												</a>
 												<ul class="dropdown-menu">
 													<ul class="nav nav-pills nav-stacked">
-														<li><a href="#">Nombre de covoiturages réalisés : &emsp;&emsp;6</a></li>
-														<li><a href="#">Nombre de voyages réalisés : &emsp;&emsp;&emsp;&emsp;10</a></li>
-														<li><a href="#">Nombre de passagers transportés : &emsp;15</a></li>
+														<li><a href="#">Nombre de covoiturages réalisés : &emsp;&emsp;<span id="nbTrajetConducteur"></span></a></li>
+														<li><a href="#">Nombre de voyages réalisés : &emsp;&emsp;&emsp;&emsp;<span id="nbTrajetPassager"></span></a></li>
+														<li><a href="#">Nombre de passagers transportés : &emsp;<span id="nbPassagersTransportes"></span></a></li>
 													</ul>
 												</ul>
 											</li>	';

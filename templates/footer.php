@@ -13,7 +13,7 @@
 			echo '	<div id=footer>
 						<div class="container">
 							<p class="text-muted credit">
-								Utilisateur <b>'. $_SESSION['pseudo'] .'</b> connecté depuis <b>'. $_SESSION['heureConnexion'] .'</b> &nbsp;
+								Utilisateur <b>'. $_SESSION['pseudo'] ."<span id='idUser'>" .$_SESSION['id'] .'</span></b> connecté depuis <b>'. $_SESSION['heureConnexion'] .'</b> &nbsp;
 								<a href="controleur.php?action=Logout">Se Déconnecter</a>.
 							</p>
 						</div>
