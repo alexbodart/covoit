@@ -32,10 +32,7 @@
 
 		<!-- Personnal CSS -->
 		<link rel="stylesheet" type="text/css" href="./css/default.css">
-		<link rel="stylesheet" type="text/css" href="./css/tripAdd.css">
-		<link rel="stylesheet" type="text/css" href="./css/tripList.css">
-		<link rel="stylesheet" type="text/css" href="./css/logSign.css">
-		
+
 		<!-- Personnal JS -->
 		<script src="./js/traitment.js"></script>		
 
@@ -91,3 +88,5 @@
 					</ul>
 				</div>
 			</nav>
+
+<div class="container">  <!-- Begin page content -->

@@ -15,6 +15,14 @@
 		$checked = "checked"; 
 	}
 
+?>
+
+	<div class="page-header">
+		<h1><center>Formulaire de Connexion</center></h1> 
+	</div>
+
+<?php
+
 	if(valider("error","GET"))
 	{
 		echo '	<div  id="wrongPass">
@@ -37,10 +45,8 @@
 
 	<p class="lead">
 
-	<div id="logSign">
-		<form role="form" action="controleur.php" id="modifyLogIn" class="formulaire">
-			<img class="Avatar" src="./ressources/Avatar.jpg" alt="" width="72" height="72">
-			<h3>Formulaire de Connexion</h3>
+	<div class="logsign">
+		<form role="form" action="controleur.php" class="formulaire">
 			<div class="form-group">
 				<label for="email">Login</label>
 				<input required autofocus type="text" class="form-control" id="email" name="login" value="<?php echo $login;?>" >

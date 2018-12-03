@@ -16,8 +16,7 @@
 	}
 ?>
 
-	<div id="tripAdd">
-		<div class="container">
+		<div class="container" id="box">
 			<form method='POST' action="controleur.php">
 				<h3>Ajout d'un trajet</h3>
 				<h4>Date</h4>
@@ -56,4 +55,3 @@
 				<button class="btn btn-lg btn-block" type="submit" name="action" value="tripAdd">Ajouter mon trajet</button>
 			</form>
 		</div>
-	</div>

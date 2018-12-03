@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 30 nov. 2018 à 16:06
--- Version du serveur :  5.7.23
--- Version de PHP :  7.2.10
+-- Généré le :  lun. 03 déc. 2018 à 14:24
+-- Version du serveur :  5.7.21
+-- Version de PHP :  5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,20 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `devweb`
 --
-
-DELIMITER $$
---
--- Fonctions
---
-DROP FUNCTION IF EXISTS `nbTrajetConducteur`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `nbTrajetConducteur` (`id_utilisateur` INT) RETURNS INT(11) BEGIN
-DECLARE nbr int;
-SET nbr=0;
-SELECT COUNT(*) INTO nbr FROM  trajetinstance WHERE (id_utilisateur=conducteur_id);
-RETURN nbr;
-END$$
-
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -73,13 +59,18 @@ CREATE TABLE IF NOT EXISTS `participants` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `participants`
+-- Déclencheurs `participants`
 --
-
-INSERT INTO `participants` (`passager_id`, `trajet_id`, `conducteur_id`) VALUES
-(5, 14, 6),
-(6, 11, 5),
-(7, 13, 5);
+DROP TRIGGER IF EXISTS `participants_BEFORE_INSERT`;
+DELIMITER $$
+CREATE TRIGGER `participants_BEFORE_INSERT` BEFORE INSERT ON `participants` FOR EACH ROW BEGIN
+	IF NEW.passager_id = NEW.conducteur_id
+		THEN
+			SET NEW.passager_id = 0;
+	END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -103,15 +94,15 @@ CREATE TABLE IF NOT EXISTS `trajetinstance` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `trajetinstance`
+-- Déclencheurs `trajetinstance`
 --
-
-INSERT INTO `trajetinstance` (`id`, `dates`, `sens`, `type`, `place_dispo`, `commentaire`, `heure`, `place_restante`, `conducteur_id`) VALUES
-(11, '2018-12-25', 2, 1, 3, NULL, '08:00:00', 0, 5),
-(12, '2018-12-01', 1, 1, 6, NULL, '18:00:00', 6, 6),
-(13, '2019-03-26', 2, 1, 5, NULL, '15:34:00', 0, 5),
-(14, '2017-06-21', 2, 2, 2, NULL, '21:58:00', 2, 6),
-(15, '2019-02-07', 2, 1, 3, NULL, '13:44:00', 3, 7);
+DROP TRIGGER IF EXISTS `trajetinstance_BEFORE_INSERT`;
+DELIMITER $$
+CREATE TRIGGER `trajetinstance_BEFORE_INSERT` BEFORE INSERT ON `trajetinstance` FOR EACH ROW BEGIN
+	SET NEW.place_restante = NEW.place_dispo;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -130,16 +121,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `connecte` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'indique si l''utilisateur est connecte',
   `blacklist` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `users`
---
-
-INSERT INTO `users` (`id`, `nom`, `prenom`, `pseudo`, `passe`, `admin`, `connecte`, `blacklist`) VALUES
-(5, 'Delhaye', 'Maximilien', 'mdelhaye', '140f6969d5213fd0ece03148e62e461e', 0, 0, 0),
-(6, 'Chretien', 'Maxence', 'mchretien', '140f6969d5213fd0ece03148e62e461e', 0, 0, 0),
-(7, 'Bodart', 'Alexandre', 'abodart', '140f6969d5213fd0ece03148e62e461e', 0, 0, 0);
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

@@ -7,8 +7,10 @@
 	}
 
 ?>
-
-	<div id="tripList">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<div class="tripList">
 		    
 		<h3> Liste des trajets </h3>
 
@@ -56,57 +58,25 @@
 								echo '	<td>A/R</td>	';
 							}
 
-								echo '	<td>'. $trajet['nom'] .' '. $trajet['prenom'] .'</td>
+								echo '	<td>'. $trajet['prenom'] .'</td>
 										<td>'. $trajet['place_dispo'] .'</td>
-										<td>'. $trajet['place_restante'] .'</td>	';
-
-
-	
-
-							if ($trajet['nom'] == $_SESSION['nom'] && $trajet['prenom'] == $_SESSION['prenom'])
-							{
-								echo '	<td></td>
-										<td></td>
+										<td>'. $trajet['place_restante'] .'</td>
+										<td>
+											<a href="#" onclick="Inscription()">
+												<img src="./ressources/plus.png" alt="icone inscription" height="20" width="40">
+											</a>
+										</td>
+										<td>
+											<a href="#" onclick="Désincription()">
+												<img src="./ressources/moins.png" alt="icone désincription" height="20" width="20">
+											</a>
+										</td>
 										<td>
 											<a href="#" onclick="Suppression()">
 												<img src="./ressources/poubelle.png" alt="icone poubelle" height="20" width="20">
 											</a>
 										</td>
 									</tr>	';
-							}
-							else 	
-							{
-								if ((verifPassager($trajet['id'],$_SESSION['id'])) != null)
-								{
-									echo '	<td></td>
-											<td>
-												<a href="#" onclick="Désincription()">
-													<img src="./ressources/moins.png" alt="icone désincription" height="20" width="20">
-												</a>
-											</td>
-											<td></td>
-											<td></td>
-										</tr>	';
-								}
-								else if ($trajet['place_restante'] > 0)
-								{
-									echo '	<td>
-												<a href="#" onclick="Inscription()">
-													<img src="./ressources/plus.png" alt="icone inscription" height="20" width="40">
-												</a>
-											</td>
-											<td></td>
-											<td></td>
-										</tr>	';
-								}
-								else
-								{
-									echo '	<td></td>
-											<td></td>
-											<td></td>
-										</tr>	';
-								}
-							}
 					}
 
 				?>
