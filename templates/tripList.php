@@ -26,15 +26,17 @@
 						<th scope="col">S'inscrire</th>
 						<th scope="col">Se désinscrire</th>
 						<th scope="col">Supprimer</th>
+						<th scope="col">Plus d'info</th>
 					</tr>
 				</thead>
 				<tbody>
 
 				<?php
 					$liste=recupTrajets();
+					$compteur = 0;
 					foreach ($liste as $trajet)
 					{
-							echo '	<tr>
+							echo '	<tr id=row'. $compteur .'>
 										<th scope="row">'. $trajet['id'] .'</th>
 										<td>'. $trajet['dates'] .'</td>
 										<td>'. $trajet['heure'] .'</td>	';
@@ -71,8 +73,7 @@
 											<a href="#" onclick="Suppression()">
 												<img src="./ressources/poubelle.png" alt="icone poubelle" height="20" width="20">
 											</a>
-										</td>
-									</tr>	';
+										</td>	';
 							}
 							else 	
 							{
@@ -84,9 +85,7 @@
 													<img src="./ressources/moins.png" alt="icone désincription" height="20" width="20">
 												</a>
 											</td>
-											<td></td>
-											<td></td>
-										</tr>	';
+											<td></td>	';
 								}
 								else if ($trajet['place_restante'] > 0)
 								{
@@ -96,17 +95,22 @@
 												</a>
 											</td>
 											<td></td>
-											<td></td>
-										</tr>	';
+											<td></td>	';
 								}
 								else
 								{
 									echo '	<td></td>
 											<td></td>
-											<td></td>
-										</tr>	';
+											<td></td>	';
 								}
 							}
+
+							echo '	<td>
+										<span class="glyphicon glyphicon-search plusDetails" id="'. $compteur .'"></a>
+									</td>
+								</tr>	';
+
+						$compteur++;
 					}
 
 				?>

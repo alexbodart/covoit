@@ -17,4 +17,14 @@ $(document).ready(function(){
 		$("#nbPassagersTransportes").text(data);
 	});
 
+	$(".plusDetails").on({
+
+		click: function(ref) {
+
+			console.log(($(this)[0].id));
+			var id = ($(this)[0].id);
+			$(".tripList").innerHTML='<h1>coucou</h1>';
+		}
+	})
+
 }); 
